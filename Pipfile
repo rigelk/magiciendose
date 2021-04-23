@@ -11,6 +11,7 @@ django-allauth = "==0.43.0"
 django-crispy-forms = "~=1.10.0"
 django-debug-toolbar = "==3.2"
 whitenoise = "==5.2.0"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.8"
