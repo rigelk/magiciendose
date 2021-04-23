@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class ClefsRegion(models.Model):
+class ClesRegion(models.Model):
     """
     Modele de donnee pour les clefs de repartition, d'une region a ses departements
     D'apres la commanditaire c'est principalement fonction de la populatio cible dans les departements
@@ -17,5 +17,5 @@ class ClefsRegion(models.Model):
     clef_repartition = models.PositiveSmallIntegerField(null=False, default=0)
 
     region = models.ForeignKey('accounts.CustomUser', on_delete=models.PROTECT)
-    departement = models.ForeignKey('accounts.CustomUser', on_delete=models.PROTECT)
+
     vaccins = models.ManyToManyField('vaccin.Vaccin', through='doses.DosesRegion')
