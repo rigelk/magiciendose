@@ -34,6 +34,11 @@ INSTALLED_APPS = [
     # Local
     'accounts',
     'pages',
+    'vaccin',
+    'centre',
+    'doses',
+    'cles_departement',
+    'cles_region'
 ]
 
 # MIDDLEWARE

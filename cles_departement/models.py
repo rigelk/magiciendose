@@ -1,20 +1,21 @@
 from django.db import models
 
 
-class ClefsDepartement(models.Model):
+class ClesDepartement(models.Model):
     """
     Modele de donnée pour les clefs de repartition, d'un departement à ses CVA
     """
-    date = models.DateTimeField(null=False, auto_now=True)
-    semaine = models.PositiveSmallIntegerField(null=False)
+    date_de_saisie = models.DateTimeField(null=False, auto_now_add=True)
+    date_de_derniere_modification = models.DateTimeField(null=False, auto_now=True)
+    date_de_validation_provisoire = models.DateTimeField()
+    date_de_validation = models.DateTimeField()
 
     # Personne qui suggere des doses, en fait ca peut etre l'ARS ou le departement
-    user = models.ForeignKey('CustomUser', on_delete=models.PROTECT)
-    # Departement vise
-    departement_cible = models.ForeignKey('CustomUser', on_delete=models.PROTECT)
+    user = models.ForeignKey('accounts.CustomUser', on_delete=models.PROTECT)
+
     # Centre vise
-    centre = models.ForeignKey('CentreAmbulatoire', on_delete=models.PROTECT)
-    vaccin = models.ForeignKey('Vaccin', on_delete=models.PROTECT)
+    centre = models.ForeignKey('centre.CentreAmbulatoire', on_delete=models.PROTECT)
+    vaccins = models.ManyToManyField('vaccin.Vaccin', through='doses.DosesDepartement')
 
     FIRST = '1'
     SECOND = '2'
