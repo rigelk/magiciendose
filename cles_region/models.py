@@ -15,7 +15,4 @@ class ClesRegion(models.Model):
     # Il faut a la fois l'id region et l'id departement, plus simple meme si on peut 
     # facilement retrouver l'un a partir de l'autre
     clef_repartition = models.PositiveSmallIntegerField(null=False, default=0)
-
-    region = models.ForeignKey('accounts.CustomUser', on_delete=models.PROTECT)
-
     vaccins = models.ManyToManyField('vaccin.Vaccin', through='doses.DosesRegion')
