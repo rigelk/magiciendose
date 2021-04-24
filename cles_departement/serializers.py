@@ -16,7 +16,7 @@ class DosesSerializer(serializers.ModelSerializer):
 
 class ClesDepartementSerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name="departement-detail")
-    vaccins = DosesSerializer(source="dosesdepartement_set", many=True)
+    vaccins = DosesSerializer(source="dosesdepartement_set", many=True, read_only=True)
     nb_doses = serializers.SerializerMethodField()
 
     class Meta:
