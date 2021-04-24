@@ -9,3 +9,5 @@ class CentreAmbulatoire(GeoCodeMixin):
     gid = models.IntegerField(default=0) # id utilisé par le ministère
     nom = models.CharField(max_length=1000)
     capacite = models.PositiveSmallIntegerField(null=False, default=0) # capacité en nb de vaccins
+
+    vaccins = models.ManyToManyField('vaccin.Vaccin', through='doses.DosesCentre')
