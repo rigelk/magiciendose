@@ -1,4 +1,5 @@
 from centre.models import CentreAmbulatoire
+from vaccin.models import Vaccin
 import pandas
 import numpy as np
 
@@ -24,3 +25,16 @@ def peuple_centres():
         centre.save()
 
     return
+
+
+def peuple_vaccins():
+    """
+    Peupler la table Vaccin
+    :return:
+    """
+    pfizer = Vaccin(nom="Pfizer", intervalle_injections=42)
+    pfizer.save()
+    moderna = Vaccin(nom="Moderna", intervalle_injections=28)
+    moderna.save()
+    az = Vaccin(nom="AstraZeneca", intervalle_injections=28)
+    az.save()

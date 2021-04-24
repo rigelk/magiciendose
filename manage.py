@@ -17,8 +17,9 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
     if sys.argv[1] == 'migrate':
-        from utils import peuple_centres
+        from utils import peuple_centres, peuple_vaccins
         peuple_centres()
+        peuple_vaccins()
 
 
 if __name__ == '__main__':
