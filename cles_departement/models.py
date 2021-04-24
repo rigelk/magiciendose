@@ -10,23 +10,17 @@ class ClesDepartement(models.Model):
     date_de_validation_provisoire = models.DateTimeField()
     date_de_validation = models.DateTimeField()
 
-    # Personne qui suggere des doses, en fait ca peut etre l'ARS ou le departement
-    user = models.ForeignKey('accounts.CustomUser', on_delete=models.PROTECT)
-
     # Centre vise
     centre = models.ForeignKey('centre.CentreAmbulatoire', on_delete=models.PROTECT)
     vaccins = models.ManyToManyField('vaccin.Vaccin', through='doses.DosesDepartement')
 
-    FIRST = '1'
-    SECOND = '2'
-    INJECTIONS_CHOICES = [
-        (FIRST, 1),
-        (SECOND, 2)
-    ]
     numero_injection = models.CharField(
         max_length=1,
-        choices=INJECTIONS_CHOICES,
-        default=FIRST,
+        choices=[
+            ('1', 1),
+            ('2', 2)
+        ],
+        default=('1', 1),
         null=False
     )
     nb_doses = models.PositiveSmallIntegerField(default=0)

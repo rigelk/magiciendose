@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'debug_toolbar',
     'rest_framework',
+    'django_filters',
 
     # Local
     'accounts',
