@@ -4,7 +4,7 @@ from .models import ClesRegion
 
 
 class ClesRegionSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="magiciendose:clesregion-detail")
+    url = serializers.HyperlinkedIdentityField(view_name="region-detail")
     class Meta:
         model = ClesRegion
         fields = '__all__'
