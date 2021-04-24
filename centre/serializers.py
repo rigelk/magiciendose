@@ -4,6 +4,7 @@ from .models import CentreAmbulatoire
 
 
 class CentreAmbulatoireSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name="centre-detail")
     departement = serializers.SerializerMethodField()
 
     class Meta:

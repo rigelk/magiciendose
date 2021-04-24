@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'django_filters',
+    'django_extensions',
 
     # Local
     'accounts',

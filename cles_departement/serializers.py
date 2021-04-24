@@ -4,6 +4,8 @@ from .models import ClesDepartement
 
 
 class ClesDepartementSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name="departement-list")
+
     class Meta:
         model = ClesDepartement
-        fields = '__all__'
+        exclude = ['centre']
