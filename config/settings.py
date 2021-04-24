@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'centre',
     'doses',
     'cles_departement',
-    'cles_region'
+    'cles_region',
+
+    'mixins',
 ]
 
 # MIDDLEWARE

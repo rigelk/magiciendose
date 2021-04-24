@@ -8,7 +8,8 @@ class DosesRegion(models.Model):
     region = models.ForeignKey('cles_region.ClesRegion', on_delete=models.CASCADE)
     vaccin = models.ForeignKey('vaccin.Vaccin', on_delete=models.CASCADE)
 
-    nb_doses = models.PositiveSmallIntegerField(default=0)
+    nb_doses = models.PositiveSmallIntegerField(null=False, default=0)
+    nb_doses_par_flacon = models.PositiveSmallIntegerField(null=False, default=0)
 
 
 class DosesDepartement(models.Model):
@@ -18,4 +19,5 @@ class DosesDepartement(models.Model):
     departement = models.ForeignKey('cles_departement.ClesDepartement', on_delete=models.CASCADE)
     vaccin = models.ForeignKey('vaccin.Vaccin', on_delete=models.CASCADE)
 
-    nb_doses = models.PositiveSmallIntegerField(default=0)
+    nb_doses = models.PositiveSmallIntegerField(null=False, default=0)
+    nb_doses_par_flacon = models.PositiveSmallIntegerField(null=False, default=0)

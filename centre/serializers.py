@@ -9,7 +9,7 @@ class CentreAmbulatoireSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = CentreAmbulatoire
-        fields = ('url', 'nom', 'capacite', 'code_postal', 'departement')
+        fields = ('url', 'gid', 'nom', 'capacite', 'code_postal', 'departement')
 
     def get_departement(self, obj):
         return obj.departement
