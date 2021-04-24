@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 from mixins.models import GeoCodeMixin
 from enum import Enum
 import pandas
@@ -31,19 +32,13 @@ class ClesDepartement(GeoCodeMixin):
 
     vaccins = models.ManyToManyField('vaccin.Vaccin', through='doses.DosesDepartement')
 
-    numero_injection = models.CharField(
-        max_length=1,
-        choices=[
-            (1, '1'),
-            (2, '2')
-        ],
-        default=(1, '1'),
-        null=False
-    )
     numero_departement = models.CharField(
         max_length=3,
         choices=get_enum_depts(),
         default=get_enum_depts()[0],
         null=False
     )
-    nb_doses = models.PositiveSmallIntegerField(default=0)
+
+    @property
+    def nb_doses(self):
+        return self.dosesdepartement_set.aggregate(total=Sum('nb_doses'))['total']

@@ -23,6 +23,5 @@ class ClesDepartementSerializer(serializers.ModelSerializer):
         model = ClesDepartement
         fields = '__all__'
 
-    @classmethod
-    def get_nb_doses(self, o):
-        return o.dosesdepartement_set.aggregate(total=Sum('nb_doses'))['total']
+    def get_nb_doses(self, obj):
+        return obj.nb_doses

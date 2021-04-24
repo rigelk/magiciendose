@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 import pandas
 
 
@@ -37,3 +38,7 @@ class ClesRegion(models.Model):
     clef_repartition = models.PositiveSmallIntegerField(null=False, default=0)
 
     vaccins = models.ManyToManyField('vaccin.Vaccin', through='doses.DosesRegion')
+
+    @property
+    def nb_doses(self):
+        return self.dosesregion_set.aggregate(total=Sum('nb_doses'))['total']

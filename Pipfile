@@ -16,6 +16,8 @@ pgeocode = "*"
 django-filter = "*"
 django-extensions = "*"
 openpyxl = "*"
+pyyaml = "*"
+uritemplate = "*"
 
 [requires]
 python_version = "3.8"

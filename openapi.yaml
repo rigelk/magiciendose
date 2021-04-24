@@ -1,0 +1,2334 @@
+openapi: 3.0.2
+info:
+  title: MagicienDose
+  version: 1.0.0
+  description: API for MagicienDose
+paths:
+  /api/centres/:
+    get:
+      operationId: listCentreAmbulatoires
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: gid
+        required: false
+        in: query
+        description: gid
+        schema:
+          type: string
+      - name: nom
+        required: false
+        in: query
+        description: nom
+        schema:
+          type: string
+      - name: capacite
+        required: false
+        in: query
+        description: capacite
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CentreAmbulatoire'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createCentreAmbulatoire
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CentreAmbulatoire'
+          description: ''
+      tags:
+      - api
+  /api/centres/{id}/:
+    get:
+      operationId: retrieveCentreAmbulatoire
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this centre ambulatoire.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: gid
+        required: false
+        in: query
+        description: gid
+        schema:
+          type: string
+      - name: nom
+        required: false
+        in: query
+        description: nom
+        schema:
+          type: string
+      - name: capacite
+        required: false
+        in: query
+        description: capacite
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CentreAmbulatoire'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateCentreAmbulatoire
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this centre ambulatoire.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: gid
+        required: false
+        in: query
+        description: gid
+        schema:
+          type: string
+      - name: nom
+        required: false
+        in: query
+        description: nom
+        schema:
+          type: string
+      - name: capacite
+        required: false
+        in: query
+        description: capacite
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CentreAmbulatoire'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateCentreAmbulatoire
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this centre ambulatoire.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: gid
+        required: false
+        in: query
+        description: gid
+        schema:
+          type: string
+      - name: nom
+        required: false
+        in: query
+        description: nom
+        schema:
+          type: string
+      - name: capacite
+        required: false
+        in: query
+        description: capacite
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CentreAmbulatoire'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CentreAmbulatoire'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyCentreAmbulatoire
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this centre ambulatoire.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: gid
+        required: false
+        in: query
+        description: gid
+        schema:
+          type: string
+      - name: nom
+        required: false
+        in: query
+        description: nom
+        schema:
+          type: string
+      - name: capacite
+        required: false
+        in: query
+        description: capacite
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/vaccins/:
+    get:
+      operationId: listVaccins
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Vaccin'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createVaccin
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vaccin'
+          description: ''
+      tags:
+      - api
+  /api/vaccins/{id}/:
+    get:
+      operationId: retrieveVaccin
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vaccin.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vaccin'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateVaccin
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vaccin.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vaccin'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateVaccin
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vaccin.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vaccin'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vaccin'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyVaccin
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vaccin.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/departements/:
+    get:
+      operationId: listClesDepartements
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createClesDepartement
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+  /api/departements/{id}/:
+    get:
+      operationId: retrieveClesDepartement
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateClesDepartement
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateClesDepartement
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyClesDepartement
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/semaine/{semaine}/departements/:
+    get:
+      operationId: listClesDepartements
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createClesDepartement
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+  /api/semaine/{semaine}/departements/{id}/:
+    get:
+      operationId: retrieveClesDepartement
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateClesDepartement
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateClesDepartement
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesDepartement'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesDepartement'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyClesDepartement
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles departement.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: date_de_validation_provisoire
+        required: false
+        in: query
+        description: date_de_validation_provisoire
+        schema:
+          type: string
+      - name: date_de_validation
+        required: false
+        in: query
+        description: date_de_validation
+        schema:
+          type: string
+      - name: nb_doses
+        required: false
+        in: query
+        description: nb_doses
+        schema:
+          type: string
+      - name: code_postal
+        required: false
+        in: query
+        description: code_postal
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/regions/:
+    get:
+      operationId: listClesRegions
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createClesRegion
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+  /api/regions/{id}/:
+    get:
+      operationId: retrieveClesRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateClesRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateClesRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyClesRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/semaine/{semaine}/regions/:
+    get:
+      operationId: listClesRegions
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createClesRegion
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+  /api/semaine/{semaine}/regions/{id}/:
+    get:
+      operationId: retrieveClesRegion
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateClesRegion
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateClesRegion
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClesRegion'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClesRegion'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyClesRegion
+      description: ''
+      parameters:
+      - name: semaine
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this cles region.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: date_de_saisie
+        required: false
+        in: query
+        description: date_de_saisie
+        schema:
+          type: string
+      - name: date_de_derniere_modification
+        required: false
+        in: query
+        description: date_de_derniere_modification
+        schema:
+          type: string
+      - name: semaine_de_vaccination
+        required: false
+        in: query
+        description: semaine_de_vaccination
+        schema:
+          type: string
+      - name: clef_repartition
+        required: false
+        in: query
+        description: clef_repartition
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    CentreAmbulatoire:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        gid:
+          type: integer
+        nom:
+          type: string
+          maxLength: 1000
+        capacite:
+          type: integer
+        code_postal:
+          type: integer
+          nullable: true
+        departement:
+          type: string
+          readOnly: true
+        departement_url:
+          type: string
+          readOnly: true
+      required:
+      - nom
+    Vaccin:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        nom:
+          type: string
+          maxLength: 20
+        intervalle_injections:
+          type: integer
+      required:
+      - nom
+    ClesDepartement:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          readOnly: true
+        vaccins:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                readOnly: true
+              nom:
+                type: string
+                readOnly: true
+              nb_doses:
+                type: integer
+              nb_doses_par_flacon:
+                type: integer
+          readOnly: true
+        nb_doses:
+          type: string
+          readOnly: true
+        code_postal:
+          type: integer
+          nullable: true
+        code_commune_insee:
+          type: integer
+          nullable: true
+        date_de_saisie:
+          type: string
+          format: date-time
+          readOnly: true
+        date_de_derniere_modification:
+          type: string
+          format: date-time
+          readOnly: true
+        date_de_validation_provisoire:
+          type: string
+          format: date-time
+          nullable: true
+        date_de_validation:
+          type: string
+          format: date-time
+          nullable: true
+        semaine_de_vaccination:
+          type: integer
+          nullable: true
+        numero_injection:
+          enum:
+          - 1
+          - 2
+          type: integer
+        numero_departement:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
+          - 35
+          - 36
+          - 37
+          - 38
+          - 39
+          - 40
+          - 41
+          - 42
+          - 43
+          - 44
+          - 45
+          - 46
+          - 47
+          - 48
+          - 49
+          - 50
+          - 51
+          - 52
+          - 53
+          - 54
+          - 55
+          - 56
+          - 57
+          - 58
+          - 59
+          - 60
+          - 61
+          - 62
+          - 63
+          - 64
+          - 65
+          - 66
+          - 67
+          - 68
+          - 69
+          - 70
+          - 71
+          - 72
+          - 73
+          - 74
+          - 75
+          - 76
+          - 77
+          - 78
+          - 79
+          - 80
+          - 81
+          - 82
+          - 83
+          - 84
+          - 85
+          - 86
+          - 87
+          - 88
+          - 89
+          - 90
+          - 91
+          - 92
+          - 93
+          - 94
+          - 95
+          - 96
+          - 97
+          - 98
+          - 99
+          - 100
+          - 101
+          type: integer
+    ClesRegion:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        vaccins:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                readOnly: true
+              nom:
+                type: string
+                readOnly: true
+              nb_doses:
+                type: integer
+              nb_doses_par_flacon:
+                type: integer
+          readOnly: true
+        date_de_saisie:
+          type: string
+          format: date-time
+          readOnly: true
+        date_de_derniere_modification:
+          type: string
+          format: date-time
+          readOnly: true
+        semaine_de_vaccination:
+          type: integer
+        numero_region:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          type: integer
+        clef_repartition:
+          type: integer
+      required:
+      - semaine_de_vaccination
