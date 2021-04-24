@@ -18,10 +18,7 @@ class ClesRegionViewSet(viewsets.ModelViewSet):
     ordering = ('-date_de_derniere_modification')
 
 
-class ClesRegionsParSemaine(viewsets.ModelViewSet):
-    serializer_class = ClesRegionSerializer
-    pagination_class = LimitOffsetPagination
-
+class ClesRegionsParSemaine(ClesRegionViewSet):
     def get_queryset(self):
         semaine = self.kwargs.get('semaine')
         return ClesRegion.objects.filter(semaine_de_vaccination=semaine)

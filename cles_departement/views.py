@@ -13,15 +13,12 @@ class ClesDepartementViewSet(viewsets.ModelViewSet):
     pagination_class = LimitOffsetPagination
     filter_backends = (SearchFilter, OrderingFilter, DjangoFilterBackend)
     search_fields = ('=numero_injection', 'vaccin__nom')
-    filter_fields = ('date_de_saisie', 'date_de_derniere_modification', 'date_de_validation_provisoire', 'date_de_validation', 'nb_doses')
+    filter_fields = ('date_de_saisie', 'date_de_derniere_modification', 'date_de_validation_provisoire', 'date_de_validation', 'nb_doses', 'code_postal')
     ordering_fields = ('date_de_saisie', 'date_de_derniere_modification', 'date_de_validation_provisoire', 'date_de_validation', 'nb_doses')
     ordering = ('-date_de_derniere_modification')
 
 
-class ClesDepartementsParSemaine(viewsets.ModelViewSet):
-    serializer_class = ClesDepartementSerializer
-    pagination_class = LimitOffsetPagination
-
+class ClesDepartementsParSemaine(ClesDepartementViewSet):
     def get_queryset(self):
         semaine = self.kwargs.get('semaine')
         return ClesDepartement.objects.filter(semaine_de_vaccination=semaine)
