@@ -16,6 +16,9 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+    if sys.argv[1] == 'migrate':
+        from utils import peuple_centres
+        peuple_centres()
 
 
 if __name__ == '__main__':
