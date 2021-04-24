@@ -15,6 +15,7 @@ djangorestframework = "*"
 pgeocode = "*"
 django-filter = "*"
 django-extensions = "*"
+openpyxl = "*"
 
 [requires]
 python_version = "3.8"
