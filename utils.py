@@ -1,5 +1,9 @@
 from centre.models import CentreAmbulatoire
 from vaccin.models import Vaccin
+from cles_region.models import ClesRegion
+from cles_departement.models import ClesDepartement
+from doses.models import DosesRegion, DosesDepartement, DosesCentre
+
 import pandas
 import numpy as np
 
@@ -38,3 +42,20 @@ def peuple_vaccins():
     moderna.save()
     az = Vaccin(nom="AstraZeneca", intervalle_injections=28)
     az.save()
+
+
+def peuple_regions():
+    """
+    Peupler les regions et les departements pour l'IDF
+    :return:
+    """
+    for semaine in range(10, 22):
+        region_semaine = ClesRegion(semaine_de_vaccination=semaine, numero_region=6)
+        region_semaine.save()
+        # Bon c'est un hack
+        for dept in [76, 78, 79, 92, 93, 94, 95, 96]:
+            dept_semaine = ClesDepartement(semaine_de_vaccination=semaine, numero_departement=dept,
+                                           code_postal=str(dept - 1).ljust(5, '0'))
+            dept_semaine.save()
+
+    return
