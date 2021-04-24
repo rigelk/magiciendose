@@ -15,7 +15,7 @@ class DosesSerializer(serializers.HyperlinkedModelSerializer):
 
 class ClesRegionSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name="region-detail")
-    vaccins = DosesSerializer(source="dosesregion_set", many=True)
+    vaccins = DosesSerializer(source="dosesregion_set", many=True, read_only=True)
 
     class Meta:
         model = ClesRegion
